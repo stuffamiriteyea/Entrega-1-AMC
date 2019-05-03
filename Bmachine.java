@@ -14,11 +14,11 @@ public class Bmachine {
 			this.w = w;
 		}
 	
-	public int[] getD() {
+	public double[] getD() {
 		return d;
 	}
 
-	public void setD(int[] d) {
+	public void setD(double[] d) {
 		this.d = d;
 	}
 
