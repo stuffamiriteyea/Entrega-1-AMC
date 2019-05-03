@@ -56,7 +56,7 @@ public class Bmachine {
 		}
 		
 		//- Implementar um método que calcule o produto interno de dois vetores dados:
-	public static double produto( double [] vec1, double [] vec2 ) {
+	public double produto( double [] vec1, double [] vec2 ) {
 		   int linha = vec1.length;  
 		   double r=0;
 		   for(int i=0; i< linha; i++) 
@@ -66,7 +66,7 @@ public class Bmachine {
 		}
 		
 		//- Implementar um método que calcule o produto interno de uma vetores dados:
-	public static double[] ProdutoMatriz(double[][] matriz, double[] vetor) {
+	public double[] ProdutoMatriz(double[][] matriz, double[] vetor) {
 		    int linha = matriz.length;
 		    int coluna= matriz[0].length;
 
@@ -82,18 +82,26 @@ public class Bmachine {
 		    }
 
 		
-	public static double[] decompor(double x, double [] d) {
-			double r []= new double [d.length];
-			int i = d.length-1;
-			while (x != 0 ) {
-				r[i]= x % d[i];
+	public double[] decompor( ) {
+			double h []= new double [b.length];
+			int i = b.length-1;
+			while (i!= 0 ) {
+				r[i]=  % d[i];
 				x = (x - r[i])/d[i];
 				i--;
 			}
-			return r;
+			return h;
 		}
+	
 
-		public static double z()
+	
+		public void Update(double [] Aa, double [] Bb, double [][] Ww) {
+			setA(Aa);
+			setB(Bb);
+			setW(Ww);
+			
+			
+		}
 }
 				
 		
