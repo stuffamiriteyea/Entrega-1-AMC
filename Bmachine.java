@@ -43,7 +43,7 @@ public class Bmachine {
 	}
 
 	public void setW(double[][] w) {
-		W = w;
+		this.w = w;
 	}
 	
 	
