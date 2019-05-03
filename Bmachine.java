@@ -46,16 +46,17 @@ public class Bmachine {
 		this.w = w;
 	}
 	
+	@Override
+	public String toString() {
+		return "[" + b + ", " + a + ", " + w + "]";
+		}
 	
-		public double[] energy(double [] d, double [] b) {
-			
-			
-			
-			return ;
+		public double energy(double[] v, double[] h) {				
+			return (-produto(a,v) - produto(b,h) - produto(ProdutoMatriz(w, v),h));			
 		}
 		
 		//- Implementar um método que calcule o produto interno de dois vetores dados:
-		public static double prduto( double [] vec1, double [] vec2 ) {
+		public static double produto( double [] vec1, double [] vec2 ) {
 		    int row = vec1.length;  
 		    double r=0;
 		    for(int i=0; i<=row; i++) 
@@ -80,15 +81,6 @@ public class Bmachine {
 		    }
 		    return r;
 		}
-
-		//- Implementar um método que calcule a matriz transposta de uma matriz dada:
-		public int[][] matrizTransposta(int[][] matriz){
-			for(int linha=0;linha<matriz.length;linha++){
-				for(int coluna=0;coluna<matriz[linha].length;coluna++){
-					if(coluna>linha)
-						matriz[linha][coluna]=matriz[coluna][linha];
-				}
-			}
-			return matriz;
-		}
+		
 }
+
