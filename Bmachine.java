@@ -1,43 +1,50 @@
-package classes;
 
 public class Bmachine {
+	private int[]d;
+	private double []a;
+	private double[]b;
+	private double[][]W;
 	
-	public class Bmachine {
-		 double [] d;
-		 double [] a;
-		 double [] b;
-		 double [][] w;
-	
-		
-		public Bmachine() {
-			super();
-			this.d = d;
-			this.a = a;
-			this.w = w;
-		}
-		public double[] energy(d b) {
-			return nome;
-		}
-		public void setNome(String nome) {
-			this.nome = nome;
-		}
-		public int getNif() {
-			return nif;
-		}
-		public void setNif(int nif) {
-			this.nif = nif;
-		}
-		public int getCc() {
-			return cc;
-		}
-		public void setCc(int cc) {
-			this.cc = cc;
-		}
-		@Override
-		public String toString() {
-			return "[" + nome + ", " + nif + ", " + cc + "]";
-		}
-		
+	public Bmachine(int[]d,double []a,double []b,double [][]W) {
+		this.d = d;
+		this.a = a;
+		this.b = b;
+		this.W = W;
 	}
+
+	public int[] getD() {
+		return d;
+	}
+
+	public void setD(int[] d) {
+		this.d = d;
+	}
+
+	public double[] getA() {
+		return a;
+	}
+
+	public void setA(double[] a) {
+		this.a = a;
+	}
+
+	public double[] getB() {
+		return b;
+	}
+
+	public void setB(double[] b) {
+		this.b = b;
+	}
+
+	public double[][] getW() {
+		return W;
+	}
+
+	public void setW(double[][] w) {
+		W = w;
+	}
+	
+	
+	
 
 }
