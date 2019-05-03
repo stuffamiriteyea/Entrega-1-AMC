@@ -46,6 +46,7 @@ public class Bmachine {
 		this.w = w;
 	}
 	
+<<<<<<< HEAD
 	@Override
 	public String toString() {
 		return "[" + b + ", " + a + ", " + w + "]";
@@ -57,6 +58,18 @@ public class Bmachine {
 		
 		//- Implementar um método que calcule o produto interno de dois vetores dados:
 		public static double produto( double [] vec1, double [] vec2 ) {
+=======
+	
+		public double[] energy(double [] d, double [] b) {
+			
+			
+			
+			return ;
+		}
+		
+		//- Implementar um método que calcule o produto interno de dois vetores dados:
+		public static double prduto( double [] vec1, double [] vec2 ) {
+>>>>>>> 04ef041f2948996f59ad0e64fff246f0ce324029
 		    int row = vec1.length;  
 		    double r=0;
 		    for(int i=0; i<=row; i++) 
@@ -69,9 +82,15 @@ public class Bmachine {
 		public static double[] ProdutoMatriz(double[][] matriz, double[] vetor) {
 		    int linha = matriz.length;
 		    int coluna= matriz[0].length;
+<<<<<<< HEAD
 
 		    double[] r = new double[linha];
 
+=======
+
+		    double[] r = new double[linha];
+
+>>>>>>> 04ef041f2948996f59ad0e64fff246f0ce324029
 		    for (int i = 0; i <= linha; i++) {
 		        double sum = 0;
 		        for (int j = 0; j <= coluna; j++) {
@@ -81,6 +100,20 @@ public class Bmachine {
 		    }
 		    return r;
 		}
+<<<<<<< HEAD
 		
+=======
+
+		//- Implementar um método que calcule a matriz transposta de uma matriz dada:
+		public int[][] matrizTransposta(int[][] matriz){
+			for(int linha=0;linha<matriz.length;linha++){
+				for(int coluna=0;coluna<matriz[linha].length;coluna++){
+					if(coluna>linha)
+						matriz[linha][coluna]=matriz[coluna][linha];
+				}
+			}
+			return matriz;
+		}
+>>>>>>> 04ef041f2948996f59ad0e64fff246f0ce324029
 }
 
