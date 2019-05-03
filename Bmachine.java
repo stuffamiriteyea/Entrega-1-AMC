@@ -7,12 +7,12 @@ public class Bmachine {
 	private	double [][] w;
 	
 	public Bmachine(double [] d, double [] a, double [] b, double [][] w) {
-			super();
-			this.d = d;
-			this.a = a;
-			this.b = b;
-			this.w = w;
-		}
+		super();
+		this.d = d;
+		this.a = a;
+		this.b = b;
+		this.w = w;
+	}
 	
 	public double[] getD() {
 		return d;
@@ -53,47 +53,43 @@ public class Bmachine {
 	
 	public double energia(double[] v, double[] h) {				
 		return (-produto(a,v) - produto(b,h) - produto(ProdutoMatriz(w, v),h));			
+	}
+		
+	//- Implementar um mï¿½todo que calcule o produto interno de dois vetores dados:
+	public double produto( double [] vec1, double [] vec2 ) {
+	    int linha = vec1.length;  
+	    double r = 0;
+	    for(int i = 0; i < linha; i++) 
+	        r += vec1[i] * vec2[i];
+	    return r;    	
 		}
 		
-		//- Implementar um método que calcule o produto interno de dois vetores dados:
-	public static double produto( double [] vec1, double [] vec2 ) {
-		   int linha = vec1.length;  
-		   double r=0;
-		   for(int i=0; i< linha; i++) 
-		        r+=vec1[i]*vec2[i];
-		   return r;    
-		
+		//- Implementar um mï¿½todo que calcule o produto interno de uma vetores dados:
+	public double[] ProdutoMatriz(double[][] matriz, double[] vetor) {
+	    int linha = matriz.length;
+	    int coluna = matriz[0].length;
+
+	    double[] r = new double[linha];
+
+	    for (int i = 0; i <= linha; i++) {
+	        double sum = 0;
+	        for (int j = 0; j <= coluna; j++) {
+	            sum += matriz[i][j]* vetor[j];
+	        }
+	        r[i] = sum;
+	    }
+	    return r;
+	}
+
+
+	public static int decompor(double [] x, double [] d) {
+		x = 
+		while (x != 0) {
+			For (int j= 0; j < x.length; j++) {
+				x[j]= x % d;			
+			}
 		}
-		
-		//- Implementar um método que calcule o produto interno de uma vetores dados:
-	public static double[] ProdutoMatriz(double[][] matriz, double[] vetor) {
-		    int linha = matriz.length;
-		    int coluna= matriz[0].length;
+	}
 
-		    double[] r = new double[linha];
-
-		    for (int i = 0; i < linha; i++) {
-		        double sum = 0;
-		        for (int j = 0; j < coluna; j++) {
-		            sum += matriz[i][j]* vetor[j];}
-		        r[i] = sum;
-		        }
-		    return r; 
-		    }
-
-		
-		public static int decompor(double [] x, double [] d) {
-			x = 
-			while (x != 0) {
-				For (int j= 0; j < x.length; j++) {
-					x[j]= x % d;
-					
-				}
-				
-				
-			}
-				
-			}
-		
 }
 
