@@ -51,36 +51,49 @@ public class Bmachine {
 		return "[" + b + ", " + a + ", " + w + "]";
 		}
 	
-		public double energy(double[] v, double[] h) {				
-			return (-produto(a,v) - produto(b,h) - produto(ProdutoMatriz(w, v),h));			
+	public double energia(double[] v, double[] h) {				
+		return (-produto(a,v) - produto(b,h) - produto(ProdutoMatriz(w, v),h));			
 		}
 		
 		//- Implementar um método que calcule o produto interno de dois vetores dados:
-		public static double produto( double [] vec1, double [] vec2 ) {
-		    int row = vec1.length;  
-		    double r=0;
-		    for(int i=0; i<=row; i++) 
+	public static double produto( double [] vec1, double [] vec2 ) {
+		   int linha = vec1.length;  
+		   double r=0;
+		   for(int i=0; i< linha; i++) 
 		        r+=vec1[i]*vec2[i];
-		    return r;    
+		   return r;    
 		
 		}
 		
 		//- Implementar um método que calcule o produto interno de uma vetores dados:
-		public static double[] ProdutoMatriz(double[][] matriz, double[] vetor) {
+	public static double[] ProdutoMatriz(double[][] matriz, double[] vetor) {
 		    int linha = matriz.length;
 		    int coluna= matriz[0].length;
 
 		    double[] r = new double[linha];
 
-		    for (int i = 0; i <= linha; i++) {
+		    for (int i = 0; i < linha; i++) {
 		        double sum = 0;
-		        for (int j = 0; j <= coluna; j++) {
-		            sum += matriz[i][j]* vetor[j];
-		        }
+		        for (int j = 0; j < coluna; j++) {
+		            sum += matriz[i][j]* vetor[j];}
 		        r[i] = sum;
+		        }
+		    return r; 
 		    }
-		    return r;
-		}
+
+		
+		public static int decompor(double [] x, double [] d) {
+			x = 
+			while (x != 0) {
+				For (int j= 0; j < x.length; j++) {
+					x[j]= x % d;
+					
+				}
+				
+				
+			}
+				
+			}
 		
 }
 
