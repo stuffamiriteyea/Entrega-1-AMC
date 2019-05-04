@@ -134,6 +134,37 @@ public class Bmachine {
 		}
 		return Z;
 	}
+
+	public double prob(double [] v, double[] h) {
+		return (1/constantZ())*(Math.exp(-energy(v,h)));
+	}
+	
+	public double probm(double[]v) {
+		double r=0;
+		for (int i=0; i<Math.pow(2, b.length); i++) {
+			double h[]=DecomporH(i);
+			r+=prob(v,h);
+		}
+		return r;
+	}
+	
+	public int classify(double[]v) {
+		double vaux []= new double [v.length+1];
+		for (int i=0; i<v.length; i++) 
+			vaux[i]=v[i];
+		double p=0;
+		int c=0;
+		for (int j=0;j<d[-1]; j++) {
+			vaux[-1]=j;
+			double paux=probm(vaux);
+			if (paux>p) {
+				p=paux;
+				c=j;
+			}
+		
+		}
+		return c;
+	}
 	
 		public void Update(double [] Aa, double [] Bb, double [][] Ww) {
 			setA(Aa);
