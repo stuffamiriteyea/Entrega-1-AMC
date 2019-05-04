@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Test1 {
 	
 	public static void main(String[] args) throws Exception{
-		// TODO Auto-generated method stub
+		
 		Sample B = new Sample();
 		int Z[]= {1 , 2, 3, 0, 5};
 		int Y[]= {0 , 2, 1, 0, 4};
@@ -28,7 +28,7 @@ public class Test1 {
 		double[] a = {1.0, 0.0};
 		double[] b = {1.0, 0.0};
 		
-		double[] v = {0.0,0.0};
+		double[] v = {0.0,1.0};
 		double[] h = {1.0,1.0};
 		
 		double[][] w = {{1.0,0.0}, {1.0,0.0}};
@@ -40,16 +40,18 @@ public class Test1 {
 		Nova.setA(b);
 		System.out.println( Arrays.toString( Nova.getA() ) );
 		
-		System.out.println (Nova.energia(v, h));
-		
-		System.out.println(Nova.ConstZ());
-		
 		int ind1 = 47;
 		System.out.println(Arrays.toString( Nova.DecomporV(ind1) ));
 		int ind2 = 2;
-		System.out.println(Arrays.toString( Nova.DecomporH(ind2) ));
+		System.out.println(Arrays.toString( Nova.DecomporH(ind2) ));	
 		
+		System.out.println(Nova.prob(v, h));
+		System.out.println(Nova.probm(v));
+		System.out.println(Nova.energy(v, h));
+		System.out.println(Nova.constantZ());
 		
+		double[] va = {1.0,2.0,3.0,4.0}; 
+		System.out.println(Nova.classify(va));
 		
 	}
 }

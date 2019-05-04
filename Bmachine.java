@@ -55,7 +55,7 @@ public class Bmachine {
 		return "[" + b + ", " + a + ", " + w + "]";
 		}
 	
-	public double energia(double[] v, double[] h) {				
+	public double energy(double[] v, double[] h) {				
 		return (-produto(a,v) - produto(b,h) - produto(ProdutoMatriz(w, v),h));			
 		}
 		
@@ -120,7 +120,7 @@ public class Bmachine {
 			return r;
 		}
 	
-	public double ConstZ () throws Exception {
+	public double constantZ () throws Exception {
 			
 		double prod = d[0];
 		double Z = 0;
@@ -129,17 +129,17 @@ public class Bmachine {
 			prod *= d[i];
 		for(int i = 0; i < prod; i++) {
 			for(int j = 0; j < Math.pow(2, b.length); j++) {
-				Z += Math.exp(- energia( DecomporV(i), DecomporH(j)) );
+				Z += Math.exp(- energy( DecomporV(i), DecomporH(j)) );
 			}
 		}
 		return Z;
 	}
 
-	public double prob(double [] v, double[] h) {
+	public double prob(double [] v, double[] h) throws Exception{
 		return (1/constantZ())*(Math.exp(-energy(v,h)));
 	}
 	
-	public double probm(double[]v) {
+	public double probm(double[]v) throws Exception{
 		double r=0;
 		for (int i=0; i<Math.pow(2, b.length); i++) {
 			double h[]=DecomporH(i);
@@ -148,7 +148,7 @@ public class Bmachine {
 		return r;
 	}
 	
-	public int classify(double[]v) {
+	public int classify(double[]v) throws Exception{
 		double vaux []= new double [v.length+1];
 		for (int i=0; i<v.length; i++) 
 			vaux[i]=v[i];
