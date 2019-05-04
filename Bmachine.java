@@ -1,15 +1,14 @@
 package classes;
 
-import classes.Sample;
 import java.lang.Math;
 
 public class Bmachine {
-	private double[] d;
+	private int[] d;
 	private double [] a;
 	private	double [] b;
 	private	double [][] w;
 	
-	public Bmachine(double [] d, double [] a, double [] b, double [][] w) {
+	public Bmachine(int [] d, double [] a, double [] b, double [][] w) {
 			super();
 			this.d = d;
 			this.a = a;
@@ -19,11 +18,11 @@ public class Bmachine {
 	
 	
 	
-	public double[] getD() {
+	public int[] getD() {
 		return d;
 	}
 
-	public void setD(double[] d) {
+	public void setD(int[] d) {
 		this.d = d;
 	}
 
@@ -87,7 +86,7 @@ public class Bmachine {
 		    }
 
 		
-	public double[] DecomporV(int[] d, int i) throws Exception {
+	public double[] DecomporV(int i) throws Exception {
 			int n = d.length;
 			double[] r = new double[n];
 			
@@ -108,7 +107,7 @@ public class Bmachine {
 			int n = b.length;
 			double[] r = new double[n];
 		
-			double prod = d[0];
+			double prod = 2;
 			for (int j = 1; j < n;j++)
 				prod *= 2;
 			if (i < 0 || i >= prod)
@@ -121,10 +120,20 @@ public class Bmachine {
 			return r;
 		}
 	
-	//public double ConstZ () {
-	//		Z = Math.exp(- energy());
-	//		return Z;
-	//}
+	public double ConstZ () throws Exception {
+			
+		double prod = d[0];
+		double Z = 0;
+		
+		for (int i = 1; i < d.length;i++)
+			prod *= d[i];
+		for(int i = 0; i < prod; i++) {
+			for(int j = 0; j < Math.pow(2, b.length); j++) {
+				Z += Math.exp(- energia( DecomporV(i), DecomporH(j)) );
+			}
+		}
+		return Z;
+	}
 	
 		public void Update(double [] Aa, double [] Bb, double [][] Ww) {
 			setA(Aa);
