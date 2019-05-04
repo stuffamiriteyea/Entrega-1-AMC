@@ -1,3 +1,4 @@
+package classes;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,7 +37,7 @@ public class Sample {
 	public int[] element(int i) {
 		return A.get(i);
 	}
-	/*primeira versão vetor
+	/*primeira versï¿½o vetor
 	public int [] count(int [] v, int[] e){
 		int r [] = new int[v.length];
 		int b =0;
@@ -60,7 +61,7 @@ public class Sample {
 		return r;
 	}*/
 	
-	//fazer com a versão de número
+	//fazer com a versï¿½o de nï¿½mero
 		
 	public int count(int []v, int [] e) {
 		int r =0;
@@ -94,26 +95,6 @@ public class Sample {
 		}		
 		return r;
 					
-	}
-	
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Sample B = new Sample();
-		int a[]= {1 , 2, 3, 0, 5};
-		int b[]= {0 , 2, 1, 0, 4};
-		int c[]= {1 , 0, 3, 1, 3};
-		int d[]= {0,2,4};
-		int g[]= {1,3,3};
-		int h[]= {1,3,2};
-		B.add(a);
-		B.add(b);
-		B.add(c);
-		System.out.println(B);
-		//System.out.println(Arrays.toString(B.element(1)));
-		//System.out.println(Arrays.toString(B.domain()));
-		System.out.println(B.count(d, g));
-		System.out.println(B.count(d, h));
 	}
 	
 }
