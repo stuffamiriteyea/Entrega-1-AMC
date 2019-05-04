@@ -87,7 +87,7 @@ public class Bmachine {
 		    }
 
 		
-	public double[] DecomporV(double [] d, int i) throws Exception {
+	public double[] DecomporV(int[] d, int i) throws Exception {
 			int n = d.length;
 			double[] r = new double[n];
 			
@@ -122,7 +122,7 @@ public class Bmachine {
 		}
 	
 	//public double ConstZ () {
-	//		Z = Math.get.exponent(- energy());
+	//		Z = Math.exp(- energy());
 	//		return Z;
 	//}
 	
