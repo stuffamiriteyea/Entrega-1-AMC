@@ -1,5 +1,8 @@
 package classes;
 
+import classes.Sample;
+import java.lang.Math;
+
 public class Bmachine {
 	private double[] d;
 	private double [] a;
@@ -13,6 +16,8 @@ public class Bmachine {
 			this.b = b;
 			this.w = w;
 		}
+	
+	
 	
 	public double[] getD() {
 		return d;
@@ -55,7 +60,7 @@ public class Bmachine {
 		return (-produto(a,v) - produto(b,h) - produto(ProdutoMatriz(w, v),h));			
 		}
 		
-		//- Implementar um método que calcule o produto interno de dois vetores dados:
+		//- Implementar um mï¿½todo que calcule o produto interno de dois vetores dados:
 	public double produto( double [] vec1, double [] vec2 ) {
 		   int linha = vec1.length;  
 		   double r=0;
@@ -65,7 +70,7 @@ public class Bmachine {
 		
 		}
 		
-		//- Implementar um método que calcule o produto interno de uma vetores dados:
+		//- Implementar um mï¿½todo que calcule o produto interno de uma vetores dados:
 	public double[] ProdutoMatriz(double[][] matriz, double[] vetor) {
 		    int linha = matriz.length;
 		    int coluna= matriz[0].length;
@@ -82,25 +87,49 @@ public class Bmachine {
 		    }
 
 		
-	public double[] decompor( ) {
-			double h []= new double [b.length];
-			int i = b.length-1;
-			while (i!= 0 ) {
-				r[i]=  % d[i];
-				x = (x - r[i])/d[i];
-				i--;
+	public double[] DecomporV(double [] d, int i) {
+			int n = d.length;
+			double[] r = new double[n];
+			
+			//double prod = d[0];
+			//for (int j=1; j<n;j++)
+			//	prod *= d[j];
+			//if (i < 0 || i > prod)
+			//	EXIT
+				
+			for(int j = 1; j <= n; j++) {
+				r[n-j] = i % d[n-j];
+				i /= d[n-j];
 			}
-			return h;
+			return r;
 		}
 	
-
+	public double[] DecomporH (int i) {
+			int n = b.length;
+			double[] r = new double[n];
+		
+			//double prod = d[0];
+			//for (int j=1; j<n;j++)
+			//	prod *= 2;
+			//if (i < 0 || i > prod)
+			//	EXIT
+			
+			for(int j = 1; j <= n; j++) {
+				r[n-j] = i % 2;
+				i /= 2;
+			}
+			return r;
+		}
+	
+	//public double ConstZ () {
+	//		Z = Math.get.exponent(- energy());
+	//		return Z;
+	//}
 	
 		public void Update(double [] Aa, double [] Bb, double [][] Ww) {
 			setA(Aa);
 			setB(Bb);
 			setW(Ww);
-			
-			
 		}
 }
 				
