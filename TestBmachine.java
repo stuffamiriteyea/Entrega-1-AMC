@@ -16,5 +16,10 @@ public class TestBmachine {
 		System.out.println( Arrays.toString( Nova.getA() ) );
 		Nova.setA(b);
 		System.out.println( Arrays.toString( Nova.getA() ) );
+		double[] dom = {2.0, 4.0, 6.0};
+		int i1 = 47;
+		System.out.println(Arrays.toString( Nova.DecomporV(dom, i1) ));
+		int i2 = 5;
+		System.out.println(Arrays.toString( Nova.DecomporH(i2) ));
 	}
 }
