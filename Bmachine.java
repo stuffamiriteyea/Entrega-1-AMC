@@ -56,20 +56,20 @@ public class Bmachine {
 		}
 	
 	public double energy(double[] v, double[] h) {				
-		return (-produto(a,v) - produto(b,h) - produto(ProdutoMatriz(w, v),h));			
+		return (-produto(a,v) - produto(b,h) - produto(ProdutoMatriz(w, h),v));			
 		}
 		
-		//- Implementar um m�todo que calcule o produto interno de dois vetores dados:
+		//- Implementar um metodo que calcule o produto interno de dois vetores dados:
 	public double produto( double [] vec1, double [] vec2 ) {
 		   int linha = vec1.length;  
 		   double r=0;
-		   for(int i=0; i< linha; i++) 
+		   for(int i=0; i < linha; i++) 
 		        r+=vec1[i]*vec2[i];
 		   return r;    
 		
 		}
 		
-		//- Implementar um m�todo que calcule o produto interno de uma vetores dados:
+		//- Implementar um metodo que calcule o produto interno de uma vetores dados:
 	public double[] ProdutoMatriz(double[][] matriz, double[] vetor) {
 		    int linha = matriz.length;
 		    int coluna= matriz[0].length;
@@ -87,11 +87,11 @@ public class Bmachine {
 
 		
 	public double[] DecomporV(int i) throws Exception {
-			int n = d.length;
+			int n = d.length - 1;
 			double[] r = new double[n];
 			
 			double prod = d[0];
-			for (int j = 1; j < n;j++)
+			for (int j = 1; j < n; j++)
 				prod *= d[j];
 			if (i < 0 || i >= prod)
 				throw new Error("valor de i impossível");
@@ -141,7 +141,7 @@ public class Bmachine {
 	
 	public double probm(double[]v) throws Exception{
 		double r=0;
-		for (int i=0; i<Math.pow(2, b.length); i++) {
+		for (int i=0; i < Math.pow(2, b.length); i++) {
 			double h[]=DecomporH(i);
 			r+=prob(v,h);
 		}
