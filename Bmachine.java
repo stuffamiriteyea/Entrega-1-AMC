@@ -87,15 +87,15 @@ public class Bmachine {
 		    }
 
 		
-	public double[] DecomporV(double [] d, int i) {
+	public double[] DecomporV(double [] d, int i) throws Exception {
 			int n = d.length;
 			double[] r = new double[n];
 			
-			//double prod = d[0];
-			//for (int j=1; j<n;j++)
-			//	prod *= d[j];
-			//if (i < 0 || i > prod)
-			//	EXIT
+			double prod = d[0];
+			for (int j = 1; j < n;j++)
+				prod *= d[j];
+			if (i < 0 || i >= prod)
+				throw new Error("valor de i impossível");
 				
 			for(int j = 1; j <= n; j++) {
 				r[n-j] = i % d[n-j];
@@ -104,15 +104,15 @@ public class Bmachine {
 			return r;
 		}
 	
-	public double[] DecomporH (int i) {
+	public double[] DecomporH (int i) throws Exception{
 			int n = b.length;
 			double[] r = new double[n];
 		
-			//double prod = d[0];
-			//for (int j=1; j<n;j++)
-			//	prod *= 2;
-			//if (i < 0 || i > prod)
-			//	EXIT
+			double prod = d[0];
+			for (int j = 1; j < n;j++)
+				prod *= 2;
+			if (i < 0 || i >= prod)
+				throw new Error("valor de i impossível");
 			
 			for(int j = 1; j <= n; j++) {
 				r[n-j] = i % 2;
