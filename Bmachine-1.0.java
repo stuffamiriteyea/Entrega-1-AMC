@@ -55,33 +55,23 @@ public class Bmachine {
 		return "[" + b + ", " + a + ", " + w + "]";
 		}
 	
-	public double energy(double[] v, double[] h) throws Exception{		
-		return (- produto(a,v) - produto(b,h) - produto(ProdutoMatriz(w, h),v));			
+	public double energia(double[] v, double[] h) {				
+		return (-produto(a,v) - produto(b,h) - produto(ProdutoMatriz(w, v),h));			
 		}
 		
-		//- Implementar um metodo que calcule o produto interno de dois vetores dados:
-	public double produto( double [] vec1, double [] vec2 ) throws Exception{
-
-			if (vec1.length != vec2.length)
-				throw new Error("vetores de tamanhos diferentes");
-		
-		
-			int linha = vec1.length;  
+		//- Implementar um m�todo que calcule o produto interno de dois vetores dados:
+	public double produto( double [] vec1, double [] vec2 ) {
+		   int linha = vec1.length;  
 		   double r=0;
-		   for(int i=0; i < linha; i++) 
+		   for(int i=0; i< linha; i++) 
 		        r+=vec1[i]*vec2[i];
 		   return r;    
 		
 		}
 		
-		//- Implementar um metodo que calcule o produto interno de uma matriz por um vetor (não transposto):
-	public double[] ProdutoMatriz(double[][] matriz, double[] vetor) throws Exception{
-		   
-			if (vetor.length != matriz[0].length)
-				throw new Error("vetor incompatível com matriz");
-		
-		
-			int linha = matriz.length;
+		//- Implementar um m�todo que calcule o produto interno de uma vetores dados:
+	public double[] ProdutoMatriz(double[][] matriz, double[] vetor) {
+		    int linha = matriz.length;
 		    int coluna= matriz[0].length;
 
 		    double[] r = new double[linha];
@@ -89,7 +79,7 @@ public class Bmachine {
 		    for (int i = 0; i < linha; i++) {
 		        double sum = 0;
 		        for (int j = 0; j < coluna; j++) {
-		            sum += matriz[i][j] * vetor[j];}
+		            sum += matriz[i][j]* vetor[j];}
 		        r[i] = sum;
 		        }
 		    return r; 
@@ -97,11 +87,11 @@ public class Bmachine {
 
 		
 	public double[] DecomporV(int i) throws Exception {
-			int n = d.length - 1;
+			int n = d.length;
 			double[] r = new double[n];
 			
 			double prod = d[0];
-			for (int j = 1; j < n; j++)
+			for (int j = 1; j < n;j++)
 				prod *= d[j];
 			if (i < 0 || i >= prod)
 				throw new Error("valor de i impossível");
@@ -130,7 +120,7 @@ public class Bmachine {
 			return r;
 		}
 	
-	public double constantZ () throws Exception {
+	public double ConstZ () throws Exception {
 			
 		double prod = d[0];
 		double Z = 0;
@@ -139,26 +129,26 @@ public class Bmachine {
 			prod *= d[i];
 		for(int i = 0; i < prod; i++) {
 			for(int j = 0; j < Math.pow(2, b.length); j++) {
-				Z += Math.exp(- energy( DecomporV(i), DecomporH(j)) );
+				Z += Math.exp(- energia( DecomporV(i), DecomporH(j)) );
 			}
 		}
 		return Z;
 	}
 
-	public double prob(double [] v, double[] h) throws Exception{
+	public double prob(double [] v, double[] h) {
 		return (1/constantZ())*(Math.exp(-energy(v,h)));
 	}
 	
-	public double probm(double[]v) throws Exception{
+	public double probm(double[]v) {
 		double r=0;
-		for (int i=0; i < Math.pow(2, b.length); i++) {
+		for (int i=0; i<Math.pow(2, b.length); i++) {
 			double h[]=DecomporH(i);
 			r+=prob(v,h);
 		}
 		return r;
 	}
 	
-	public int classify(double[]v) throws Exception{
+	public int classify(double[]v) {
 		double vaux []= new double [v.length+1];
 		for (int i=0; i<v.length; i++) 
 			vaux[i]=v[i];
