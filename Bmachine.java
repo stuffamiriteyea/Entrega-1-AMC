@@ -1,8 +1,11 @@
 package classes;
 
+import java.io.Serializable;
 import java.lang.Math;
 
-public class Bmachine {
+public class Bmachine implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
 	private int[] d;
 	private double [] a;
 	private	double [] b;
@@ -113,7 +116,7 @@ public class Bmachine {
 			for (int j = 1; j < n;j++)
 				prod *= 2;
 			if (i < 0 || i >= prod)
-				throw new Error("valor de i impossível");
+				throw new Error("valor de i impossivel");
 			
 			for(int j = 1; j <= n; j++) {
 				r[n-j] = i % 2;
@@ -139,22 +142,23 @@ public class Bmachine {
 	}
 	
 	//calculo da probabilidade de obervar um vetor v dado um h
-	public double prob(double [] v, double[] h) throws Exception{
-		return (1/constantZ())*(Math.exp(-energy(v,h)));
+	public double prob(double [] v, double[] h, double z) throws Exception{
+		return (1/z)*(Math.exp(-energy(v,h)));
 	}
 	
 	//probabilidade marginal de observar um vetor v (soma de prob para todos h) 
-	public double probm(double[]v) throws Exception{
+	public double probm(double[]v, double z) throws Exception{
 		double r=0;
 		for (int i=0; i<Math.pow(2, b.length); i++) {
 			double h[]=DecomporH(i);
-			r=r+prob(v,h);
+			r=r+prob(v,h,z);
 		}
 		return r;
 	}
 	
 	//dado um vetor sem classe devolve a classe que apresenta maior probabilidade (probm) para esse vetor
 	public int classify(double[]v) throws Exception{
+		double z = constantZ();
 		double vaux []= new double [v.length+1];
 		for (int i=0; i<v.length; i++) 
 			vaux[i]=v[i];
@@ -162,7 +166,7 @@ public class Bmachine {
 		int c=0;
 		for (int j=0;j<d[d.length-1]; j++) {
 			vaux[vaux.length-1]=j;
-			double paux=probm(vaux);
+			double paux=probm(vaux, z);
 			if (paux>p) {
 				p=paux;
 				c=j;
